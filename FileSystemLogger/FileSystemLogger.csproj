@@ -37,6 +37,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -63,12 +65,23 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Command\AddWatcherCommand.cs" />
+    <Compile Include="Command\LoadCommand.cs" />
+    <Compile Include="Command\LogUpdateCommand.cs" />
+    <Compile Include="Command\SaveCommand.cs" />
+    <Compile Include="Converter\DateStringConverter.cs" />
+    <Compile Include="MainViewModel.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Constant.cs" />
+    <Compile Include="Model\DirectoryWatcher.cs" />
+    <Compile Include="Model\JSON.cs" />
+    <Compile Include="Model\Setting.cs" />
+    <Compile Include="Model\WatchLog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
