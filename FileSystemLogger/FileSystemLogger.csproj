@@ -66,6 +66,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Command\AddWatcherCommand.cs" />
+    <Compile Include="Command\DisposeCommand.cs" />
     <Compile Include="Command\LoadCommand.cs" />
     <Compile Include="Command\LogUpdateCommand.cs" />
     <Compile Include="Command\SaveCommand.cs" />

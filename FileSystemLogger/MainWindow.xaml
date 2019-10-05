@@ -16,6 +16,7 @@
         <cmd:LogUpdateCommand x:Key="logUpdateCommand" Watcher="{Binding SelectedItem, ElementName=watcherList}" Logs="{Binding Logs, Mode=TwoWay}" />
         <cmd:LoadCommand x:Key="loadCommand" Watchers="{Binding Watchers}" />
         <cmd:SaveCommand x:Key="saveCommand"  Watchers="{Binding Watchers}" />
+        <cmd:DisposeCommand x:Key="disposeCommand" Watchers="{Binding Watchers}" />
     </Window.Resources>
 
     <Window.DataContext>
@@ -28,6 +29,9 @@
         </i:EventTrigger>
         <i:EventTrigger EventName="Closed">
             <i:InvokeCommandAction Command="{Binding Source={StaticResource ResourceKey=saveCommand}}"/>
+        </i:EventTrigger>
+        <i:EventTrigger EventName="Closed">
+            <i:InvokeCommandAction Command="{Binding Source={StaticResource ResourceKey=disposeCommand}}"/>
         </i:EventTrigger>
     </i:Interaction.Triggers>
 
