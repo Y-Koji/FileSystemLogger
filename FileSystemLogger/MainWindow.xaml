@@ -6,6 +6,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FileSystemLogger"
         xmlns:cmd="clr-namespace:FileSystemLogger.Command"
+        xmlns:bih="clr-namespace:FileSystemLogger.Behavior"
         xmlns:Converter="clr-namespace:FileSystemLogger.Converter" x:Class="FileSystemLogger.MainWindow"
         mc:Ignorable="d"
         Title="FileSystemLogger" Height="450" Width="800">
@@ -69,6 +70,15 @@
                         <i:InvokeCommandAction Command="{Binding Mode=OneWay, Source={StaticResource ResourceKey=logUpdateCommand}}" />
                     </i:EventTrigger>
                 </i:Interaction.Triggers>
+                <i:Interaction.Behaviors>
+                    <bih:DragDropBehavior IsDirectoryDrop="True" IsFileDrop="False"
+                                          CommandParameter="{Binding DropList, RelativeSource={RelativeSource Self}}">
+                        <bih:DragDropBehavior.Command>
+                            <cmd:DragDropCommand Watchers="{Binding Watchers}" />
+                        </bih:DragDropBehavior.Command>
+                    </bih:DragDropBehavior>
+                    <bih:ListBoxDeleteActionBehavior />
+                </i:Interaction.Behaviors>
             </ListBox>
         </Grid>
         <Grid Grid.Row="2">

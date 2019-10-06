@@ -46,6 +46,15 @@ namespace FileSystemLogger.Command
 
         public void Execute(object parameter)
         {
+            // 購読済みなら追加しない
+            foreach (var watcher in Watchers)
+            {
+                if (Path == watcher.Path)
+                {
+                    return;
+                }
+            }
+
             Watchers.Add(DirectoryWatcher.Listen(Path));
             Path = string.Empty;
         }
